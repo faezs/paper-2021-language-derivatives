@@ -1,3 +1,4 @@
+{-# OPTIONS --guardedness --sized-types #-}
 -- | This module imports all modules of the language-derivatives library.
 module Everything where
 
@@ -26,3 +27,5 @@ import Predicate.Algebra
 import Predicate.Properties
 import Algebra.Construct.Function
 import Misc
+
+
