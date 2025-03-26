@@ -20,7 +20,7 @@ open import Algebra.Bundles
 open import Algebra.Module.Bundles
 open import Relation.Binary.PropositionalEquality
      using (_≡_; _≗_; cong; module ≡-Reasoning) renaming (refl to refl≡; sym to sym≡)
-open import Function using (id; _∘_; const; flip; _↔_; Inverse; mk↔′)
+open import Function using (id; _∘_; const; flip; _↔_; Inverse; mk↔ₛ′)
 open import Relation.Unary using (_⊢_)
 
 open import Data.Product.Algebra using (Σ-assoc)
@@ -384,7 +384,7 @@ module _ (A↔B : A ↔ B) where
   open import Axiom.UniquenessOfIdentityProofs.WithK using (uip)
 
   ≡⁻¹ : b ≡ f a  ↔  a ≡ f⁻¹ b
-  ≡⁻¹ {b = b}{a = a} = mk↔′
+  ≡⁻¹ {b = b}{a = a} = mk↔ₛ′
     (λ {refl≡ → sym≡ (inverseʳ a)})
     (λ {refl≡ → sym≡ (inverseˡ b)})
     (λ a≡f⁻¹b → uip _ a≡f⁻¹b)
@@ -651,7 +651,7 @@ module MonoidSemiringProperties {M : Set ℓ} {_∙_ : Op₂ M} {ε : M}
   open import Data.List.Relation.Unary.All
 
   ☆-star : P ☆ ⟷ 𝟏 ∪ P ⋆ P ☆
-  ☆-star {w = w} = mk↔′
+  ☆-star {w = w} = mk↔ₛ′
     (λ { ([] , refl≡ , []) → inj₁ refl≡
        ; (p ∷ ps , refl≡ , Pp ∷ Pps) → inj₂ ((p , foldr _∙_ ε ps) , refl≡ , Pp , ps , refl≡ , Pps) })
     (λ { (inj₁ refl≡) → [] , refl≡ , []
@@ -662,7 +662,7 @@ module MonoidSemiringProperties {M : Set ℓ} {_∙_ : Op₂ M} {ε : M}
        ; (p ∷ ps , refl≡ , Pp ∷ Pps) → refl≡ })
 
   ✪↔☆ : P ✪ ⟷ P ☆
-  ✪↔☆ {P = P} = mk↔′ f f⁻¹ invˡ invʳ
+  ✪↔☆ {P = P} = mk↔ₛ′ f f⁻¹ invˡ invʳ
    where
      f : ∀ {w} → (P ✪) w → (P ☆) w
      f zero✪ = [] , refl≡ , []

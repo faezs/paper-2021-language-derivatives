@@ -14,7 +14,7 @@ private
   variable
     A B C : Set ℓ
 
-open import Function using (mk↔′)
+open import Function using (mk↔ₛ′)
 open import Algebra.Definitions
 open import Algebra.Bundles
 open import Algebra.Module.Bundles

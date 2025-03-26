@@ -50,7 +50,7 @@ module Types {ℓ : Level} where
 
   -- A ✶ ↔ ⊤ ⊎ A × A ✶
   ✶-star : Star {ℓ = ℓ} _↔_ _⊎_ _×_ ⊥ ⊤ _✶
-  ✶-star _ = mk↔′
+  ✶-star _ = mk↔ₛ′
     (λ {[] → inj₁ tt ; (x ∷ xs) → inj₂ (x , xs)})
     (λ {(inj₁ _) → [] ; (inj₂ (x , xs)) → x ∷ xs})
     (λ {(inj₁ _) → refl ; (inj₂ (x , xs)) → refl})
